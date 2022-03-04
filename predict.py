@@ -14,13 +14,16 @@ while True:
     except ValueError:
         print('You inputed wrong number! Try again!')
 
-thetas = []
+params = []
 with open('thetas.csv', 'r') as thetas_f:
     csv_reader = csv.reader(thetas_f)
     header = next(csv_reader)
     for row in csv_reader:
-        thetas.append(row)
+        params.append(row)
 
-theta0 = float(thetas[-1][0])
-theta1 = float(thetas[-1][1])
+theta0 = float(params[-1][0])
+theta1 = float(params[-1][1])
+mean_val = float(params[-1][2])
+std_val = float(params[-1][3])
+mileage = (mileage - mean_val) / std_val
 print('Predicted price: ', predict(mileage, theta0, theta1))
