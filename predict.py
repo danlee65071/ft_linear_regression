@@ -25,5 +25,7 @@ theta0 = float(params[-1][0])
 theta1 = float(params[-1][1])
 mean_val = float(params[-1][2])
 std_val = float(params[-1][3])
+if std_val == 0:
+    std_val = 1
 mileage = (mileage - mean_val) / std_val
 print('Predicted price: ', predict(mileage, theta0, theta1))
